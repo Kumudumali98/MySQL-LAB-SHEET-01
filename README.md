@@ -14,7 +14,7 @@ b. Write a SQL statement to insert a record with your own values into the table 
 2.2 Insert the following set of data into the table.
 
 |student_id | student_name | date_of_birth | phone_number | gender | food_preferance|
-|-----------|----------|----------|----------|----------|----------|---------------|
+|-----------|------------|----------|----------|----------|----------|
 1 | Kasun Perera | 1993-12-02 | 081-2234515 | M | chicken
 2 | Nimali Jayasinghe | 1994-03-11 | 011-2145892 | F | vegi
 3 | Fathima Nuzra | 1993-11-08 | 081-2323114 | F | vegi
