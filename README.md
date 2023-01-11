@@ -1,8 +1,8 @@
 # MySQL-LAB-SHEET-01
 
 1. Use your database and
-a. Write a SQL statement to create a simple table called ‘countries’ including the fields, country_id, country_name and region_id. (Use suitable data types)
-b. Write a SQL statement to insert a record with your own values into the table countries against each field.
+  1.1 Write a SQL statement to create a simple table called ‘countries’ including the fields, country_id, country_name and region_id. (Use suitable data types)
+  1.2 Write a SQL statement to insert a record with your own values into the table countries against each field.
 
 2. In your database
   2.1 Create a simple table called ‘student_details’ with the fields, student_id, student_name, date_of_birth, phone_number, gender (‘M’, ‘F’) and food_preference (‘vegi’, ‘fish’, ‘egg’, ‘chicken’).
