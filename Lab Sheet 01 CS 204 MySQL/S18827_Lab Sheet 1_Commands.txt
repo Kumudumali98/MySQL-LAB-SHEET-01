@@ -1,0 +1,138 @@
+CREATE database s18827;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE s18827
+Database changed
+
+-----------------------------------------Question 01-----------------------------------------
+
+mysql> CREATE table Countries(
+    -> Country_id INT,
+    -> Country_name VARCHAR(20),
+    -> Region_id CHAR(2)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> 
+mysql> INSERT INTO Countries VALUES
+    -> (1,'Sri Lanka','LK'),
+    -> (2,'India','IN'),
+    -> (3,'Egypt','EG'),
+    -> (4,'France','FR');
+Query OK, 4 rows affected (0.00 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM COUNTRIES;
++------------+--------------+-----------+
+| Country_id | Country_name | Region_id |
++------------+--------------+-----------+
+|          1 | Sri Lanka    | LK        |
+|          2 | India        | IN        |
+|          3 | Egypt        | EG        |
+|          4 | France       | FR        |
++------------+--------------+-----------+
+4 rows in set (0.00 sec)
+
+
+-----------------------------------------Question 02-----------------------------------------
+
+mysql> CREATE TABLE Student_details(
+    -> student_id INT,
+    -> student_name VARCHAR(50) NOT NULL,
+    -> date_of_birth DATE,
+    -> phone_number CHAR(11),
+    -> gender ENUM('M', 'F'),
+    -> food_preferance ENUM('vegi', 'fish', 'egg', 'chicken') DEFAULT 'vegi'
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO Student_details VALUES
+    -> (1,'Kasun Perera', '1993-12-02','081-2234515','M','chicken'),
+    -> (2,'Nimali Jayasinghe', '1994-03-11','011-2145892','F', 'vegi'),
+    -> (3,'Fathimal Nuzra', '1993-11-08','081-2323114','F', 'vegi'),
+    -> (4,'Nimal Fernando', '1993-04-05','011-5645789','M','fish'),
+    -> (5,'Charuni Perera', '1995-09-12','036-1123452','F','egg');
+Query OK, 5 rows affected (0.00 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT *FROM Student_details;
++------------+-------------------+---------------+--------------+--------+-----------------+
+| student_id | student_name      | date_of_birth | phone_number | gender | food_preferance |
++------------+-------------------+---------------+--------------+--------+-----------------+
+|          1 | Kasun Perera      | 1993-12-02    | 081-2234515  | M      | chicken         |
+|          2 | Nimali Jayasinghe | 1994-03-11    | 011-2145892  | F      | vegi            |
+|          3 | Fathimal Nuzra    | 1993-11-08    | 081-2323114  | F      | vegi            |
+|          4 | Nimal Fernando    | 1993-04-05    | 011-5645789  | M      | fish            |
+|          5 | Charuni Perera    | 1995-09-12    | 036-1123452  | F      | egg             |
++------------+-------------------+---------------+--------------+--------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *FROM Student_details WHERE student_name = 'Charuni Perera';
++------------+----------------+---------------+--------------+--------+-----------------+
+| student_id | student_name   | date_of_birth | phone_number | gender | food_preferance |
++------------+----------------+---------------+--------------+--------+-----------------+
+|          5 | Charuni Perera | 1995-09-12    | 036-1123452  | F      | egg             |
++------------+----------------+---------------+--------------+--------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *FROM Student_details WHERE gender = 'M';
++------------+----------------+---------------+--------------+--------+-----------------+
+| student_id | student_name   | date_of_birth | phone_number | gender | food_preferance |
++------------+----------------+---------------+--------------+--------+-----------------+
+|          1 | Kasun Perera   | 1993-12-02    | 081-2234515  | M      | chicken         |
+|          4 | Nimal Fernando | 1993-04-05    | 011-5645789  | M      | fish            |
++------------+----------------+---------------+--------------+--------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *FROM Student_details WHERE gender = 'F' AND food_preferance = 'vegi';
++------------+-------------------+---------------+--------------+--------+-----------------+
+| student_id | student_name      | date_of_birth | phone_number | gender | food_preferance |
++------------+-------------------+---------------+--------------+--------+-----------------+
+|          2 | Nimali Jayasinghe | 1994-03-11    | 011-2145892  | F      | vegi            |
+|          3 | Fathimal Nuzra    | 1993-11-08    | 081-2323114  | F      | vegi            |
++------------+-------------------+---------------+--------------+--------+-----------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *FROM Student_details WHERE date_of_birth BETWEEN '1993-01-31' AND '1993-12-31';
++------------+----------------+---------------+--------------+--------+-----------------+
+| student_id | student_name   | date_of_birth | phone_number | gender | food_preferance |
++------------+----------------+---------------+--------------+--------+-----------------+
+|          1 | Kasun Perera   | 1993-12-02    | 081-2234515  | M      | chicken         |
+|          3 | Fathimal Nuzra | 1993-11-08    | 081-2323114  | F      | vegi            |
+|          4 | Nimal Fernando | 1993-04-05    | 011-5645789  | M      | fish            |
++------------+----------------+---------------+--------------+--------+-----------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *FROM Student_details WHERE student_name LIKE ('N%');
++------------+-------------------+---------------+--------------+--------+-----------------+
+| student_id | student_name      | date_of_birth | phone_number | gender | food_preferance |
++------------+-------------------+---------------+--------------+--------+-----------------+
+|          2 | Nimali Jayasinghe | 1994-03-11    | 011-2145892  | F      | vegi            |
+|          4 | Nimal Fernando    | 1993-04-05    | 011-5645789  | M      | fish            |
++------------+-------------------+---------------+--------------+--------+-----------------+
+2 rows in set (0.00 sec)
+
+
+-----------------------------------------Question 03-----------------------------------------
+
+
+mysql> CREATE TABLE Employee(
+    -> Emp_id INT NOT NULL DEFAULT 0,
+    -> Emp_name VARCHAR(30) NOT NULL DEFAULT '',
+    -> Salary FLOAT(7,2) DEFAULT 1000,
+    -> Department ENUM('HR','ADMIN','COM') DEFAULT 'ADMIN'
+    -> );
+Query OK, 0 rows affected, 1 warning (0.02 sec)
+
+mysql> DESC Employee;
++------------+--------------------------+------+-----+---------+-------+
+| Field      | Type                     | Null | Key | Default | Extra |
++------------+--------------------------+------+-----+---------+-------+
+| Emp_id     | int                      | NO   |     | 0       |       |
+| Emp_name   | varchar(30)              | NO   |     |         |       |
+| Salary     | float(7,2)               | YES  |     | 1000.00 |       |
+| Department | enum('HR','ADMIN','COM') | YES  |     | ADMIN   |       |
++------------+--------------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> Terminal close -- exit!
