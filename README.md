@@ -5,13 +5,13 @@ a. Write a SQL statement to create a simple table called ‘countries’ includi
 b. Write a SQL statement to insert a record with your own values into the table countries against each field.
 
 2. In your database
-2.1 Create a simple table called ‘student_details’ with the fields, student_id, student_name, date_of_birth, phone_number, gender (‘M’, ‘F’) and food_preference (‘vegi’, ‘fish’, ‘egg’, ‘chicken’).
+  2.1 Create a simple table called ‘student_details’ with the fields, student_id, student_name, date_of_birth, phone_number, gender (‘M’, ‘F’) and food_preference (‘vegi’, ‘fish’, ‘egg’, ‘chicken’).
 * Use suitable data types for the fields.
 * student_id and student_name fields should not be null.
 * Phone_number should have the format XXX-XXXXXXX.
 * Set the default food_preference to be ‘vegi’.
 
-2.2 Insert the following set of data into the table.
+  2.2 Insert the following set of data into the table.
 
 |student_id | student_name | date_of_birth | phone_number | gender | food_preferance|
 |-----------|------------|----------|----------|----------|----------|
